@@ -1,3 +1,5 @@
 from django.contrib import admin
+from apps.worklogs.models import RecordWorkDay
 
-# Register your models here.
+
+admin.site.register(RecordWorkDay)
