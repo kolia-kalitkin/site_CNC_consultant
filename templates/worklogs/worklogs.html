@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Учет рабочего дня</title>
+</head>
+<body>
+    <form method="POST" action="/">
+        {% csrf_token %}
+        <table>
+            <tbody>
+                {{ form.as_table }}
+                <tr>
+                    <td colspan="2" align="center"><input type="submit" value="Сохранить"></td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+{% if records.count >= 0 %}
+    <h2>Список записй</h2>
+    <table>
+        <thead align="center">
+            <tr>
+                <th width="10%">даты</th>
+                <th width="30%">начало</th>
+                <th width="10%">окончание</th>
+                <th width="50%">план</th>
+            </tr>
+        </thead>
+        <tbody align="center">
+        {% for record in records %}
+            <tr>
+                <td>{{ record.work_date }}</td>
+                <td>{{ record.work_time_start }}</td>
+                <td>{{ record.work_time_end }}</td>
+                <td>{{ record.work_plan }}</td>
+
+                <td><a href="edit/{{ person.id }}">Изменить</a> | <a href="delete/{{ person.id }}">Удалить</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
+</body>
+</html>

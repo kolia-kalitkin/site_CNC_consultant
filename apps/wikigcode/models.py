@@ -25,4 +25,4 @@ class Info(models.Model):
 
 
     def __str__(self) -> str:
-        return self.title[:20]
+        return f"{self.title[:30]}..."

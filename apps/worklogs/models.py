@@ -7,8 +7,8 @@ class RecordWorkDay(models.Model):
     work_date = models.DateField()
     work_time_start = models.DateField()
     work_time_end = models.DateField()
-    text = models.TextField()
-    
+    work_plan = models.TextField()
+        
 
     def __str__(self) -> str:
         return f'запись от {str(self.work_date)}'
