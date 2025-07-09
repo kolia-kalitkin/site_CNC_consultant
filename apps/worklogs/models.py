@@ -1,14 +1,9 @@
 from django.db import models
-
-
-class Employee(models.Model):
-    employee = models.TextField()
-
-
+from django.contrib.auth.models import User
 
 
 class RecordWorkDay(models.Model):
-    # employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
+    # user = models.ForeignKey(User, on_delete=models.CASCADE)
     work_date = models.DateField()
     work_time_start = models.DateField()
     work_time_end = models.DateField()

@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "apps.wikigcode.apps.WikigcodeConfig",
     "apps.worklogs.apps.WorklogsConfig",
+    "apps.accounts",
 ]
 
 MIDDLEWARE = [
