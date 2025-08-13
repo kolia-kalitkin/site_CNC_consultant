@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block sidebar_left %}
+    <!-- содержимое левого сайдбара -->
+    <h2>Меню</h2>
+        <ul>
+            <li><a href="#">Главная</a></li>
+            <li><a href="#">Про G-код</a></li>
+            <li><a href="#">Учет рабочего времени</a></li>
+            <li><a href="#">Калькуляторы</a></li>
+        </ul>   
+{% endblock %}
+
+
+{% block sidebar_rigth %}
+    <!-- содержимое правого сайдбара -->
+    <hr>
+        {% if user.is_authenticated %}
+            Привет, <b>{{ user.username }}</b>!
+        <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <a href="#" onclick="parentNode.submit();">Выйти</a>
+        </form>
+        {% else %}
+            <p>Вы не вошли в систему</p>
+            <a href="{% url 'login' %}">Войти</a>
+        {% endif %}
+    <hr>    
+{% endblock %}
+
+
+{% block content %}
+    <h1>Приветствую!</h1>
+    <p>'Это главная страница сайта.</p>
+    
+        Аббревиатура CNC означает Computer Numerical Control, что в переводе на русский язык звучит как Числовое программное управление (ЧПУ). Это технология, использующая компьютеры для управления станками и другим производственным оборудованием. В контексте станков, CNC означает, что станок управляется компьютерной программой, а не вручную оператором
+{% endblock %}

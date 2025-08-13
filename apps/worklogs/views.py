@@ -5,7 +5,7 @@ from apps.worklogs.forms import RecordWorkDayForm
 
 
 # Получение данных из БД
-def index(request):
+def get_from_db(request):
     form = RecordWorkDayForm()
     records = RecordWorkDay.objects.all()
     context = {'form': form, 'records': records}

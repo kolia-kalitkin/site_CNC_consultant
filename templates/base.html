@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Сайт помощник опрератору станков с ЧПУ{% endblock %}</title>    
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    
+    <!-- Header -->
+    <header id="header">
+        <div class="header-logo-container">
+            {% block header %}
+                <img src="{% static 'images/logo.png' %}" alt="Логотип" class="header-logo" />
+                <span class="logo-text"><h1>Помощник оператору станков с ЧПУ</h1></span>        
+            {% endblock %}
+        </div>
+    </header>
+
+
+    <!-- Левый сайдбар -->
+    <div class="sidebar_left">
+        {% block sidebar_left %}
+        {% endblock %}
+    </div>
+
+    
+    <!-- Основной контент -->
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+
+    <!-- Правый сайдбар -->
+    <div class="sidebar_rigth">
+        {% block sidebar_rigth %}
+        {% endblock %}
+    </div>
+
+
+    <!-- Footer -->
+    <footer id="footer">
+        {% block footer %}        
+        <p>&copy; 2025 Сайт помощник опрератору станков с ЧПУ</p>
+        {% endblock %}
+    </footer>
+</body>
+</html>

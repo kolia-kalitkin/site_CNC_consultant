@@ -1,0 +1,88 @@
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px; /* ваш размер */
+    background-color: #ffffff;
+    z-index: 1000;
+    display: flex; /* чтобы центрировать содержимое по вертикали */
+    align-items: center; /* вертикальное выравнивание */
+}
+
+.header-logo-container {
+    display: flex;
+    align-items: center; /* по вертикали внутри контейнера */
+    margin-left: 50px;
+}
+
+.header-logo {
+    height: 60px; /* или другой размер */
+    width: auto;
+}
+
+.logo-text {
+    margin-left: 10px;
+    font-size: 16px;
+    color: #000;
+}
+
+
+
+
+
+
+.sidebar_left {
+    /* height: 100vh; */
+    height: calc(100% - 80px); /* высота страницы минус высота header */
+    width: 250px;
+    position: fixed;
+    top: 80px; /* ниже header */
+    left: 0;
+    background-color: #EDEEF0; 
+    padding-top: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    color: #002276;    
+    z-index: 900; /* меньше чем у header, чтобы не перекрывать его */    
+}
+
+
+
+
+.sidebar_rigth {
+    height: calc(100% - 80px); /* высота страницы минус высота header */
+    width: 250px;
+    position: fixed;
+    top: 80px; /* ниже header */
+    right: 0;
+    background-color: #EDEEF0; 
+    padding-top: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    color: #002276;    
+    z-index: 900; /* меньше чем у header, чтобы не перекрывать его */    
+}
+
+
+
+
+/* Основной контент */
+.content {
+    margin-top: 80px; /* равен высоте header */
+    margin-left: 250px; /* отступ слева равен ширине левого сайдбара */
+    margin-right: 250px; /* отступ справа равен ширине правого сайдбара */
+    padding:20px;
+    padding-top: 80px;
+}
+
+
+
+
+#footer {
+    width: 100%;
+    height: 50px; 
+    background-color: #f0f0f0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1000; /* чтобы был сверху */
+}

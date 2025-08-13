@@ -18,15 +18,16 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
-from apps.worklogs import views
+# from apps.main.views import index
+# from apps.worklogs.views import get_from_db
 
 urlpatterns = [
-    path('admin/', admin.site.urls), 
-    # path('accounts/',  include('apps.accounts.urls')),
-    # path('wikigcodes/', include('apps.wikigcode.urls')),
-    path('worklogs/',  include('apps.worklogs.urls')),
-    path('', views.index),
-    
+    path('admin/', admin.site.urls),
+    path('accounts/', include('apps.accounts.urls')), # сначала в наше приложение accounts, и только потом в auth:
+    path('accounts/', include('django.contrib.auth.urls')), # подключаем маршруты встроенное приложение авторизации auth 
+    path('wikigcodes/', include('apps.wikigcode.urls')),
+    path('worklogs/',  include('apps.worklogs.urls')),    
+    path('', include('apps.main.urls')),  # главная страница
 
 ]
 # + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
