@@ -1,11 +1,31 @@
+<!-- шаблон формы регистрации -->
 {% extends "base.html" %}
 {% block title %} Зарегистрироваться {% endblock %}
 {% block content %}
     <h2> Зарегистрироваться </h2>
+    
+    <!-- проверяет наличие ошибки, затем перебирает ошибки и отображает сообщение об ошибке в предупреждении начальной загрузки -->
+    {% if form.errors %}
+        <div style="display: table; margin: 0 auto; text-align: left;">
+            {% for key, value in form.errors.items %}
+                <strong>{{ value }}</strong>
+            {% endfor %}
+        </div>
+    {% endif %}
+
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
-
-        <p><input type="submit" value="Зарегистрироваться"></p>
+        <p>Username: {{ form.username }}</p>
+        <p>Email: {{ form.email }}</p>
+        <p>Имя: {{ form.first_name }}</p>
+        <p>Фамилия: {{ form.last_name }}</p>
+        <p>Пароль: {{ form.password1 }}</p>
+        <p>Подтвердите пароль: {{ form.password2 }}</p>
+        <button type="submit">Зарегистрироваться</button>
     </form>
+    <br>
+    <a href="{% url 'login' %}">Есть учетная запись? Зайти в систему</a>
 {% endblock %}
+
+
+
