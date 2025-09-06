@@ -22,9 +22,9 @@
 }
 
 .logo-text {
-    margin-left: 10px;
-    font-size: 16px;
-    color: #000;
+    margin-left: 15px;
+    font-size: 24px;
+    color: #090130;
 }
 
 
@@ -49,7 +49,7 @@
 
 
 
-.sidebar_rigth {
+.sidebar_right {
     height: calc(100% - 80px); /* высота страницы минус высота header */
     width: 250px;
     position: fixed;

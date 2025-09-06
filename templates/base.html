@@ -12,8 +12,10 @@
     <header id="header">
         <div class="header-logo-container">
             {% block header %}
-                <img src="{% static 'images/logo.png' %}" alt="Логотип" class="header-logo" />
-                <span class="logo-text"><h1>Помощник оператору станков с ЧПУ</h1></span>        
+                <a href="{% url 'home' %}">
+                    <img src="{% static 'images/logo.png' %}" alt="Логотип" class="header-logo" />
+                </a>
+                <h1 class="logo-text">Помощник оператору станков с ЧПУ</h1>        
             {% endblock %}
         </div>
     </header>
@@ -34,8 +36,8 @@
 
 
     <!-- Правый сайдбар -->
-    <div class="sidebar_rigth">
-        {% block sidebar_rigth %}
+    <div class="sidebar_right">
+        {% block sidebar_right %}
         {% endblock %}
     </div>
 
@@ -43,7 +45,7 @@
     <!-- Footer -->
     <footer id="footer">
         {% block footer %}        
-        <p>&copy; 2025 Сайт помощник опрератору станков с ЧПУ</p>
+        <p>&copy; 2025 Сайт помощник оператору станков с ЧПУ</p>
         {% endblock %}
     </footer>
 </body>
