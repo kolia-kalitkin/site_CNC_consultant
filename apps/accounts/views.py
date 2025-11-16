@@ -1,11 +1,19 @@
 from django.urls import reverse_lazy
 from django.views import generic
-from .forms import SignUpForm
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.views import LoginView
 from .forms import SignUpForm, LoginForm
+from django.contrib.auth.decorators import login_required
 
+
+
+# Декоратор login_required ограничивает доступ для незарегистрированных пользователей. 
+# Пользователь, не вошедший в систему, не может получить доступ к странице профиля. Если пользователь попытается это сделать, то с помощью login_required() он будет перенаправлен на settings.LOGIN_URL(который мы добавим в файл настройки проекта), передав текущий абсолютный путь в строке запроса. Пример: /login/?next=/profile/.
+# Как видно из примера пути, функция отслеживает, к какой странице пытается получить доступ пользователь. Следовательно, он перенаправит пользователя на страницу профиля, которую он запросил в первую очередь после успешной аутентификации.
+@login_required
+def profile(request):
+    return render(request, 'registration/profile.html')
 
 
 class SignUpView(generic.CreateView):

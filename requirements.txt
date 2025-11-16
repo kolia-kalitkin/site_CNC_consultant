@@ -8,6 +8,7 @@ mypy==1.16.1
 mypy_extensions==1.1.0
 packaging==25.0
 pathspec==0.12.1
+pillow==12.0.0  # Django требует от нас установки библиотеки pillow всякий раз, когда мы работаем с полем типа ImageField
 pluggy==1.6.0
 pycodestyle==2.14.0
 pyflakes==3.4.0
