@@ -7,6 +7,6 @@
         {% csrf_token %}
         <p><input type="submit" value="Войти"></p>
     </form>
-    <p><a href="{% url 'password_reset' %}">Сбросить пароль</a></p><br><br>
-    <p><a href="{% url 'signup' %}">Зарегистрироваться</a></p>
+    <p><a href="{% url 'password_reset' %}"  class="link-button">Сбросить пароль</a></p><br><br>
+    <p><a href="{% url 'signup' %}" class="link-button">Зарегистрироваться</a></p>
 {% endblock %}

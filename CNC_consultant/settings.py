@@ -129,8 +129,8 @@ STATICFILES_DIRS = [
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # для collectstatic при деплое
 
-MEDIA_ROOT = (BASE_DIR / 'media')
-MEDIA_URL = '/media/'
+MEDIA_ROOT = (BASE_DIR / 'media')   # полный путь к каталогу, в котором хранятся загруженные файлы
+MEDIA_URL = '/media/'   # базовый URL-адрес для обслуживания медиафайлов
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field

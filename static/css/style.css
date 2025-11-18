@@ -49,7 +49,7 @@
 
 
 
-.sidebar_right {
+.sidebar_rigth {
     height: calc(100% - 80px); /* высота страницы минус высота header */
     width: 250px;
     position: fixed;
@@ -63,6 +63,43 @@
 }
 
 
+
+/* ----------КНОПКА с подсветкой при наведении-------------------------*/
+.highlight-batton {
+    background-color: #e0e0e0; /* светлый фон */
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: 'Tahoma', sans-serif;
+    padding: 5px 10px;
+    cursor: pointer;
+    color: black;
+    transition: background-color 0.3s;
+}
+
+.highlight-batton:hover {
+    background-color: #cfcfcf; /* чуть более темный при наведении */
+}
+/* --------------------------------------------------------------------*/
+
+
+/* ------------------ссылки в стилизованные кнопки--------------------*/
+.link-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+.link-button.signup {
+    background-color: #28a745; /* цвет для регистрации */
+}
+/* --------------------------------------------------------------------*/
 
 
 /* Основной контент */

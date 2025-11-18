@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-
+from .models import Profile
 
 # форма регистрации
 class SignUpForm(UserCreationForm):
@@ -37,3 +37,31 @@ class LoginForm(AuthenticationForm):
                                required=True,
                                widget=forms.PasswordInput(attrs={'placeholder': 'Password'}))
     remember_me = forms.BooleanField(required=False)
+
+
+
+class UpdateUserForm(forms.ModelForm):
+    """
+    UpdateUserForm взаимодействует с моделью пользователя, позволяя пользователям обновлять свое имя пользователя и адрес электронной почты.
+    """
+    username = forms.CharField(max_length=100,
+                               required=True,
+                               widget=forms.TextInput())
+    email = forms.EmailField(required=True,
+                             widget=forms.TextInput())
+
+    class Meta:
+        model = User
+        fields = ['username', 'email']
+
+
+class UpdateProfileForm(forms.ModelForm):
+    """
+    UpdateProfileForm взаимодействует с моделью профиля, позволяя пользователям обновлять свой профиль.
+    """
+    avatar = forms.ImageField(widget=forms.FileInput())
+    user_information = forms.CharField(widget=forms.Textarea(attrs={'rows': 5}))
+
+    class Meta:
+        model = Profile
+        fields = ['avatar', 'user_information']

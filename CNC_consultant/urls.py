@@ -31,6 +31,10 @@ urlpatterns = [
 
 ]
 # + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-# или для большей читаемости
+# или для большей читаемости. 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+# Эта конструкция работает только когда проект работает в режиме разработки. Это означает, что:
+    # Во время разработки (DEBUG=True) Django будет самостоятельно обслуживать медиа-файлы по URL, указанному в MEDIA_URL.
+    # На продакшене (DEBUG=False) это делать нельзя — служба должна это делать веб-сервер (например, nginx).

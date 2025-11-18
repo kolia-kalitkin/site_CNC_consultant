@@ -18,14 +18,18 @@
     <hr>
         {% if user.is_authenticated %}
             Привет, <b>{{ user.username }}</b>!
+            <p><a href="{% url 'users-profile' %}" class="link-button">Мой профиль</a></p>
         <form action="{% url 'logout' %}" method="post">
             {% csrf_token %}
-            <a href="#" onclick="parentNode.submit();">Выйти</a>
-        </form>
+            <a href="#" onclick="parentNode.submit();" class="link-button">Выйти</a>   
+            <!-- <button type="submit" class="highlight-batton">Выйти</button> -->
+
+        
+    </form>
         {% else %}
-            <p>Вы не вошли в систему</p>
-            <a href="{% url 'login' %}">Войти</a><br>
-            <a href="{% url 'signup' %}">Зарегистрироваться</a>
+            <p><b>Вы не вошли в систему</b></p>
+            <a href="{% url 'login' %}" class="link-button">Войти</a><br><br>
+            <a href="{% url 'signup' %}" class="link-button">Зарегистрироваться</a>
 
         {% endif %}
     <hr>    
