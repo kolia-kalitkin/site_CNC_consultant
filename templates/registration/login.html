@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %} Войти в систему {% endblock %}
 {% block content %}
     <h2> Войти в систему </h2>
@@ -7,6 +8,25 @@
         {% csrf_token %}
         <p><input type="submit" value="Войти"></p>
     </form>
-    <p><a href="{% url 'password_reset' %}"  class="link-button">Сбросить пароль</a></p><br><br>
-    <p><a href="{% url 'signup' %}" class="link-button">Зарегистрироваться</a></p>
+    <br><br>
+    <p><a href="{% url 'password_reset' %}"  class="link-button">Сбросить пароль</a></p>
+
+    <p><a href="{% url 'signup' %}" class="link-button signup">Зарегистрироваться</a></p><br>
+    
+    <div style="width: 400px;"><hr></div>
+    <a href="{% url 'social:begin' 'github' %}" class="link-button_social_OAuth">
+        <img src="{% static 'images/icon_github.png' %}" alt="GitHub" class="logo_social_OAuth" />
+        Войти с GitHub
+    </a>
+
+    <a href="{% url 'social:begin' 'google-oauth2' %}" class="link-button_social_OAuth">
+        <img src="{% static 'images/icon-google.png' %}" alt="Google" class="logo_social_OAuth" />
+        Войти с Google
+    </a>
+
+    <a href="{% url 'social:begin' 'yandex-oauth2' %}" class="link-button_social_OAuth">
+        <img src="{% static 'images/icon-yandex.png' %}" alt="Yandex" class="logo_social_OAuth" />
+        Войти c Яндекс
+    </a>
+        
 {% endblock %}

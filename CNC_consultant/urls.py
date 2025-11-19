@@ -28,6 +28,7 @@ urlpatterns = [
     path('wikigcodes/', include('apps.wikigcode.urls')),
     path('worklogs/',  include('apps.worklogs.urls')),    
     path('', include('apps.main.urls')),  # главная страница
+    path('oauth/', include('social_django.urls', namespace='social')),  # URL-адреса приложения социальной аутентификации
 
 ]
 # + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

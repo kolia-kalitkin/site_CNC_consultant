@@ -1,21 +1,36 @@
 asgiref==3.9.1
+certifi==2025.11.12
+cffi==2.0.0
+charset-normalizer==3.4.4
 colorama==0.4.6
+cryptography==46.0.3
+defusedxml==0.7.1
 Django==5.2.4
 flake8==7.3.0
+idna==3.11
 iniconfig==2.1.0
 mccabe==0.7.0
 mypy==1.16.1
 mypy_extensions==1.1.0
+oauthlib==3.3.1
 packaging==25.0
 pathspec==0.12.1
-pillow==12.0.0  # Django требует от нас установки библиотеки pillow всякий раз, когда мы работаем с полем типа ImageField
+pillow==12.0.0       # Django требует от нас установки библиотеки pillow всякий раз, когда мы работаем с полем типа ImageField
 pluggy==1.6.0
 pycodestyle==2.14.0
+pycparser==2.23
 pyflakes==3.4.0
 Pygments==2.19.2
+PyJWT==2.10.1
 pytest==8.4.1
 python-dotenv==1.1.1
-pytils==0.4.3   # инструменты для работы с русскими строками (транслитерация, преобразование чисел в слова, работа с русскими датами и прочее) 
+python3-openid==3.2.0
+pytils==0.4.3       # инструменты для работы с русскими строками (транслитерация, преобразование чисел в слова, работа с русскими датами и прочее) 
+requests==2.32.5
+requests-oauthlib==2.0.0
+social-auth-app-django==5.6.0       #  простой в настройке механизм социальной аутентификации/регистрации с поддержкой нескольких фреймворков и поставщиков аутентификации.
+social-auth-core==4.8.1
 sqlparse==0.5.3
 typing_extensions==4.14.1
 tzdata==2025.2
+urllib3==2.5.0

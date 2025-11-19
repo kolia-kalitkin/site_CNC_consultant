@@ -9,7 +9,11 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
+
+from dotenv import load_dotenv
 import os
+load_dotenv()
+
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -18,9 +22,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-t(u_$3fzc*2&npg(nd63p#*tr$q$)d!c15s05a@=#&yh8h3s3='
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     'apps.accounts.apps.AccountsConfig',    
     "apps.wikigcode.apps.WikigcodeConfig",
     "apps.worklogs.apps.WorklogsConfig",
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -65,6 +67,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # context_processors содержит список путей к вызываемым объектам, которые возвращают словарь для объединения с контекстом каждого представления, избавляя нас от необходимости добавлять одни и те же данные снова и снова.
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -144,3 +149,30 @@ LOGIN_REDIRECT_URL = "/"
 SESSION_COOKIE_AGE = 60 * 60 * 24 *  30     # 30 дней
 
 LOGIN_URL = '/apps/accounts/login/'
+
+
+AUTHENTICATION_BACKENDS = (
+    # Cерверные части Google, GitHub, Yandex
+    'social_core.backends.github.GithubOAuth2',
+    'social_core.backends.google.GoogleOAuth2',
+    'social_core.backends.yandex.YandexOAuth2',  
+    'django.contrib.auth.backends.ModelBackend',    # базовая серверная часть аутентификации, которая по умолчанию входит в Django,
+)
+
+
+
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = os.getenv('SECRET_KEY')
+
+# Конфигурации социальной аутентификации для GitHub
+SOCIAL_AUTH_GITHUB_KEY = os.getenv('GITHUB_KEY')
+SOCIAL_AUTH_GITHUB_SECRET = os.getenv('GITHUB_SECRET')
+
+# Конфигурации социальной аутентификации для Google
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.getenv('GOOGLE_KEY')
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.getenv('GOOGLE_SECRET')
+
+# Конфигурации социальной аутентификации для Yandex
+SOCIAL_AUTH_YANDEX_OAUTH2_KEY = os.getenv('YANDEX_KEY')
+SOCIAL_AUTH_YANDEX_OAUTH2_SECRET = os.getenv('YANDEX_SECRET')

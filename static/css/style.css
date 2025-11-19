@@ -28,7 +28,9 @@
 }
 
 
+.social_auth_logo {
 
+}
 
 
 
@@ -84,6 +86,7 @@
 
 
 /* ------------------ссылки в стилизованные кнопки--------------------*/
+/* Общий стиль для кнопки-ссылки */
 .link-button {
     display: inline-block;
     padding: 10px 20px;
@@ -95,11 +98,59 @@
     font-size: 14px;
     margin-right: 10px;
 }
+/* Эффект при наведении */
+.link-button:hover {
+    background-color: #0068d6;
+}
+
 
 .link-button.signup {
     background-color: #28a745; /* цвет для регистрации */
 }
+/* Эффект при наведении */
+.link-button.signup:hover {
+    background-color: #21913b; 
+}
 /* --------------------------------------------------------------------*/
+
+
+
+
+/* --------------------------------------------------------------------*/
+/* Общий стиль для кнопки-ссылки с иконкой внутри */
+.link-button_social_OAuth {
+    display: inline-flex; /* чтобы иконка была внутри кнопки */
+    align-items: center; /* вертикальное центрирование */
+    padding: 8px 12px; /* внутренний отступ */
+    background-color: #24292e; 
+    border-radius: 5px; /* закругленные углы */
+    text-decoration: none; /* убрать подчеркивание */
+    transition: background-color 0.3s;
+    color: white;
+}
+
+/* Эффект при наведении */
+.link-button_social_OAuth:hover {
+    background-color: #444c56;
+}
+
+/* Стиль для иконки */
+.logo_social_OAuth {
+    height: 20px; /* высота иконки, можно регулировать */
+    width: auto;
+    margin-right: 8px; /* отступ справа от текста (если есть) */
+    border-radius: 50%;
+}
+/* --------------------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
 
 
 /* Основной контент */
