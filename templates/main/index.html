@@ -1,44 +1,14 @@
 {% extends "base.html" %}
 {% load static %}
-
-{% block sidebar_left %}
-    <!-- содержимое левого сайдбара -->
-    <h2>Меню</h2>
-        <ul>
-            <li><a href="#">Главная</a></li>
-            <li><a href="#">Про G-код</a></li>
-            <li><a href="#">Учет рабочего времени</a></li>
-            <li><a href="#">Калькуляторы</a></li>
-        </ul>   
-{% endblock %}
-
-
-{% block sidebar_rigth %}
-    <!-- содержимое правого сайдбара -->
-    <hr>
-        {% if user.is_authenticated %}
-            Привет, <b>{{ user.username }}</b>!
-            <p><a href="{% url 'users-profile' %}" class="link-button">Мой профиль</a></p>
-        <form action="{% url 'logout' %}" method="post">
-            {% csrf_token %}
-            <a href="#" onclick="parentNode.submit();" class="link-button">Выйти</a>   
-            <!-- <button type="submit" class="highlight-batton">Выйти</button> -->
-
-        
-    </form>
-        {% else %}
-            <p><b>Вы не вошли в систему</b></p>
-            <a href="{% url 'login' %}" class="link-button">Войти</a><br><br>
-            <a href="{% url 'signup' %}" class="link-button signup">Зарегистрироваться</a>
-
-        {% endif %}
-    <hr>    
-{% endblock %}
+{% block title %}Главная страница{% endblock %}
 
 
 {% block content %}
-    <h1>Приветствую!</h1>
-    <p>'Это главная страница сайта.</p>
+    <div class="article-text">
+        <h1>Приветствую!</h1>
+        <p>Это главная страница сайта.</p>
     
-        Аббревиатура CNC означает Computer Numerical Control, что в переводе на русский язык звучит как Числовое программное управление (ЧПУ). Это технология, использующая компьютеры для управления станками и другим производственным оборудованием. В контексте станков, CNC означает, что станок управляется компьютерной программой, а не вручную оператором
+    
+        Аббревиатура <b>CNC</b> означает Computer Numerical Control, что в переводе на русский язык звучит как Числовое программное управление (ЧПУ). Это технология, использующая компьютеры для управления станками и другим производственным оборудованием. В контексте станков, CNC означает, что станок управляется компьютерной программой, а не вручную оператором.
+    </div>    
 {% endblock %}

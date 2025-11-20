@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Полезные калькуляторы{% endblock %}
+
+
+
+{% block content %}
+    <div class="calculator-block">
+        <h1>Калькулятор1</h1>
+        <p>Простой калькулятор</p>    
+        <form method="post">
+            {% csrf_token %}
+            <input type="text" name="number1" placeholder="Первое число" value="{{ number1 }}" required />
+            <select name="operation" required>
+              <option value="+" {% if operation == "+" %}selected{% endif %}>+</option>
+              <option value="-" {% if operation == "-" %}selected{% endif %}>−</option>
+              <option value="*" {% if operation == "*" %}selected{% endif %}>×</option>
+              <option value="/" {% if operation == "/" %}selected{% endif %}>÷</option>
+            </select>
+            <input type="text" name="number2" placeholder="Второе число" value="{{ number2 }}" required />
+            <br><br>
+            <button type="submit">Посчитать</button>
+          </form>
+        
+          {% if result is not none %}
+          
+            <div class="calculator-block_result">
+              Итого: <br>{{ result }}
+            </div>
+          {% endif %}
+        </div>
+        
+    </div>
+
+    <div class="calculator-block">
+        <h1>Калькулятор2</h1>
+        <p>Калькулятор угла поворота координат</p>         
+            
+    </div>
+
+{% endblock %}

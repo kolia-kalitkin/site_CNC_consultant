@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'apps.accounts.apps.AccountsConfig',    
     "apps.wikigcode.apps.WikigcodeConfig",
     "apps.worklogs.apps.WorklogsConfig",
+    "apps.calculator.apps.CalculatorConfig",
+    # 'apps.calculator',
     'social_django',
 ]
 

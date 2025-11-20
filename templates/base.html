@@ -6,9 +6,8 @@
     <title>{% block title %}Сайт помощник опрератору станков с ЧПУ{% endblock %}</title>    
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
-<body>
+<body>    
     
-    <!-- Header -->
     <header id="header">
         <div class="header-logo-container">
             {% block header %}
@@ -20,33 +19,53 @@
         </div>
     </header>
 
+    <div class="main-container">
+        <aside class="sidebar_left">
+          <!-- левый сайдбар -->
+          {% block sidebar_left %}            
+            <h2>Меню</h2>
+            <ul>
+                <li><a href="{% url 'home' %}">Главная</a></li>
+                <li><a href="{% url 'calculator' %}">Калькуляторы</a></li>
+                <li><a href="#">Про G-код</a></li>
+                <li><a href="#">Учет рабочего времени</a></li>
+            </ul> 
 
-    <!-- Левый сайдбар -->
-    <div class="sidebar_left">
-        {% block sidebar_left %}
         {% endblock %}
-    </div>
-
+        </aside>
     
-    <!-- Основной контент -->
-    <div class="content">
-        {% block content %}
-        {% endblock %}
-    </div>
-
-
-    <!-- Правый сайдбар -->
-    <div class="sidebar_rigth">
-        {% block sidebar_rigth %}
-        {% endblock %}
-    </div>
-
-
-    <!-- Footer -->
+        <main class="content">
+            <!-- главный контент -->
+            {% block content %}
+            {% endblock %}
+        </main>
+    
+        <aside class="sidebar_rigth">
+            <!-- правый сайдбар -->
+            {% block sidebar_rigth %}            
+                {% if user.is_authenticated %}
+                    Привет, <b>{{ user.username }}</b>!
+                    <p><a href="{% url 'users-profile' %}" class="link-button">Мой профиль</a></p>
+                    <form action="{% url 'logout' %}" method="post">
+                        {% csrf_token %}
+                        <a href="#" onclick="parentNode.submit();" class="link-button">Выйти</a>   
+                        <!-- <button type="submit" class="highlight-batton">Выйти</button> -->        
+                    </form>
+                {% else %}
+                    <p><b>Вы не вошли в систему</b></p>
+                    <a href="{% url 'login' %}" class="link-button">Войти</a><br><br>
+                    <a href="{% url 'signup' %}" class="link-button signup">Зарегистрироваться</a>
+                {% endif %}
+            {% endblock %}
+        </aside>
+      </div>
+    
+    
     <footer id="footer">
         {% block footer %}        
-        <p>&copy; 2025 Сайт помощник оператору станков с ЧПУ</p>
+        <p>&copy; {% now "Y" %} Сайт помощник оператору станков с ЧПУ</p>
         {% endblock %}
     </footer>
+
 </body>
 </html>

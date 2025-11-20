@@ -1,14 +1,33 @@
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; */
+    /* font-family: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif; */    
+    background-color: #eceff1; 
+    color: #333;
+  }
+
+
 #header {
-    position: fixed;
+    position: fixed; /* чтобы оставаться наверху */
     top: 0;
     left: 0;
     width: 100%;
-    height: 100px; /* ваш размер */
-    background-color: #ffffff;
+    height: 100px;
+    background-color: #ffffff; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
     z-index: 1000;
-    display: flex; /* чтобы центрировать содержимое по вертикали */
-    align-items: center; /* вертикальное выравнивание */
-}
+    font-weight: 600;
+    font-size: 1.2em;
+    color: #444;
+  }
+
 
 .header-logo-container {
     display: flex;
@@ -17,7 +36,7 @@
 }
 
 .header-logo {
-    height: 60px; /* или другой размер */
+    height: 60px; 
     width: auto;
 }
 
@@ -28,47 +47,78 @@
 }
 
 
-.social_auth_logo {
 
+.main-container {
+    flex: 1;
+    display: flex;
+    margin-top: 100px; /* учесть высоту хедера */
+    position: relative;
+    padding: 0 30px;
+    background-color: transparent;
 }
-
-
+  
+  
 
 .sidebar_left {
-    /* height: 100vh; */
-    height: calc(100% - 80px); /* высота страницы минус высота header */
-    width: 250px;
     position: fixed;
-    top: 80px; /* ниже header */
+    top: 100px;
     left: 0;
-    background-color: #EDEEF0; 
-    padding-top: 20px;
-    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-    color: #002276;    
-    z-index: 900; /* меньше чем у header, чтобы не перекрывать его */    
+    width: 250px;
+    height: calc(100vh - 100px);
+    background-color: #fafafa; 
+    box-shadow: 2px 0 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    border-radius: 10px 0 0 10px;
+    overflow-y: auto;
+    z-index: 900;
+    transition: background-color 0.3s, box-shadow 0.3s;
 }
-
-
-
+.sidebar_left:hover {
+    background-color: #f5f5f5;
+    box-shadow: 4px 0 12px rgba(0,0,0,0.2);
+}
+  
+  
 
 .sidebar_rigth {
-    height: calc(100% - 80px); /* высота страницы минус высота header */
-    width: 250px;
     position: fixed;
-    top: 80px; /* ниже header */
+    top: 100px;
     right: 0;
-    background-color: #EDEEF0; 
-    padding-top: 20px;
-    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-    color: #002276;    
-    z-index: 900; /* меньше чем у header, чтобы не перекрывать его */    
+    width: 250px;
+    height: calc(100vh - 100px);
+    background-color: #fafafa;
+    box-shadow: -2px 0 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    border-radius: 0 10px 10px 0;
+    overflow-y: auto;
+    z-index: 900;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+.sidebar_rigth:hover {
+    background-color: #f5f5f5;
+    box-shadow: -4px 0 12px rgba(0,0,0,0.2);
+}
+  
+
+
+/* -----------для текста и статей--------------- */
+.article-text {    
+    font-size: 16px; 
+    line-height: 1.6; /* межстрочный интервал */
+    color: #333; /* цвет текста */
+    max-width: 800px; /* чтобы текст не растягивался слишком широко */
+    margin: 20px auto; 
+    padding: 20px; 
+    background-color: #fff; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
 }
 
 
 
 /* ----------КНОПКА с подсветкой при наведении-------------------------*/
 .highlight-batton {
-    background-color: #e0e0e0; /* светлый фон */
+    background-color: #e0e0e0; 
     border: none;
     border-radius: 5px;
     font-size: 14px;
@@ -78,15 +128,13 @@
     color: black;
     transition: background-color 0.3s;
 }
-
 .highlight-batton:hover {
-    background-color: #cfcfcf; /* чуть более темный при наведении */
+    background-color: #cfcfcf; 
 }
 /* --------------------------------------------------------------------*/
 
 
-/* ------------------ссылки в стилизованные кнопки--------------------*/
-/* Общий стиль для кнопки-ссылки */
+/* ------------------ссылки стилизованные в кнопки--------------------*/
 .link-button {
     display: inline-block;
     padding: 10px 20px;
@@ -98,16 +146,14 @@
     font-size: 14px;
     margin-right: 10px;
 }
-/* Эффект при наведении */
 .link-button:hover {
     background-color: #0068d6;
 }
 
 
 .link-button.signup {
-    background-color: #28a745; /* цвет для регистрации */
+    background-color: #28a745; 
 }
-/* Эффект при наведении */
 .link-button.signup:hover {
     background-color: #21913b; 
 }
@@ -116,29 +162,27 @@
 
 
 
-/* --------------------------------------------------------------------*/
-/* Общий стиль для кнопки-ссылки с иконкой внутри */
+/* ---------стиль для кнопки-ссылки с иконкой -------------------------*/
 .link-button_social_OAuth {
     display: inline-flex; /* чтобы иконка была внутри кнопки */
-    align-items: center; /* вертикальное центрирование */
-    padding: 8px 12px; /* внутренний отступ */
+    align-items: center; 
+    padding: 8px 12px;
     background-color: #24292e; 
-    border-radius: 5px; /* закругленные углы */
+    border-radius: 5px; 
     text-decoration: none; /* убрать подчеркивание */
     transition: background-color 0.3s;
     color: white;
 }
 
-/* Эффект при наведении */
 .link-button_social_OAuth:hover {
     background-color: #444c56;
 }
 
 /* Стиль для иконки */
 .logo_social_OAuth {
-    height: 20px; /* высота иконки, можно регулировать */
+    height: 20px; 
     width: auto;
-    margin-right: 8px; /* отступ справа от текста (если есть) */
+    margin-right: 8px; 
     border-radius: 50%;
 }
 /* --------------------------------------------------------------------*/
@@ -146,31 +190,105 @@
 
 
 
+/* -----------------calculator-------------------------------*/
+.calculator-block {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    max-width: 350px;
+    margin: auto;    
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* расстояние между элементами*/
+    width: 300px;
+    margin-top: 20px;
+    margin-left: 20px;    
+}
 
+.calculator-block h1 {
+    text-align: center;
+    margin-bottom: 15px;
+}
 
+.calculator-block button {
+    width: 48%;
+    padding: 10px;
+    font-size: 1em;
+    border: none;
+    border-radius: 8px;
+    background-color: #3498db;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
 
-
-
-
-
-/* Основной контент */
-.content {
-    margin-top: 80px; /* равен высоте header */
-    margin-left: 250px; /* отступ слева равен ширине левого сайдбара */
-    margin-right: 250px; /* отступ справа равен ширине правого сайдбара */
-    padding:20px;
-    padding-top: 80px;
+.calculator-block button:hover {
+    background-color: #2980b9;
 }
 
 
+.calculator-block input[type="text"], 
+.calculator-block select {
+    width: 100%;
+    font-size: 1.2em;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
 
+   
+.calculator-block_result {
+    margin-top: 15px;
+    padding: 10px;
+    background: #ecf0f1;
+    border-radius: 5px;
+    font-size: 1.2em; 
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+}
+/* --------------------------------------------------------------------*/
+
+
+
+
+
+.content {
+    flex: 1;
+    margin-left: 250px; /* чтобы не перекрывать левый сайдбар */
+    margin-right: 250px; /* чтобы не перекрывать правый сайдбар */
+    padding: 30px;
+    min-height: calc(100vh - 100px);
+    background-color: #ffffff; 
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: box-shadow 0.3s;
+    padding-bottom: 50px; /* высота подвала, чтобы контент не перекрывался */
+}
+.content:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+  
+     
+    
 
 #footer {
     width: 100%;
-    height: 50px; 
-    background-color: #f0f0f0;
+    height: 50px;
+    background-color: #d0d0d0; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: fixed;
     bottom: 0;
     left: 0;
-    z-index: 1000; /* чтобы был сверху */
+    font-size: 1em;
+    color: #333;
+    box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+    transition: background-color 0.3s;
+    z-index: 998;  
+}
+#footer:hover {
+    background-color: #b0b0b0; 
 }

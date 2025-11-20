@@ -27,7 +27,9 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')), # подключаем маршруты встроенное приложение авторизации auth 
     path('wikigcodes/', include('apps.wikigcode.urls')),
     path('worklogs/',  include('apps.worklogs.urls')),    
+    path('calculator/', include('apps.calculator.urls')),
     path('', include('apps.main.urls')),  # главная страница
+
     path('oauth/', include('social_django.urls', namespace='social')),  # URL-адреса приложения социальной аутентификации
 
 ]
